@@ -17,12 +17,12 @@
 
   <main class="grid md:grid-cols-12 gap-8 p-5  md:items-center">
       <div class=" md:col-span-10 flex justify-center ">
-          <div class="md:max-w-[60vw] md-:mx-auto rounded-lg overflow-hidden">
+          <div class=" w-[75%] md-:mx-auto rounded-lg overflow-hidden">
               <video x-ref="videoPlayer"
                      id="player"
+                     class="aspect-video"
                      controls
-                     preload="none"
-                     :poster="streamPoster"
+                     :data-poster="streamPoster"
               >
               </video>
           </div>
@@ -52,7 +52,7 @@
   
   <div x-show="loading" 
        x-transition 
-       class="absolute transition-all inset-0 bg-blue-950/80 backdrop-blur-lg grid items-center justify-center">
+       class="absolute transition-all  inset-0 bg-blue-950/90 backdrop-blur-lg grid items-center justify-center">
     <svg class="size-10 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
       viewBox="0 0 24 24">
       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

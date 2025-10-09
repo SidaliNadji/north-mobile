@@ -24,11 +24,11 @@ window.app = function() {
 
     get config() {
       return {
-          assetBaseUrl: import.meta.env.VITE_ASSET_BASE_URL || 'https://api.awraas.tv',
-        apiBaseUrl: import.meta.env.VITE_API_BASE_URL || 'https://api.awraas.tv/api',
-        tenantName: import.meta.env.VITE_TENANT_NAME || 'northafricatv',
-        defaultChannelName: import.meta.env.VITE_CHANNEL_NAME || 'Channel',
-        appTitle: import.meta.env.VITE_APP_TITLE || 'TV Channel'
+            assetBaseUrl: import.meta.env.VITE_ASSET_BASE_URL || 'https://api.awraas.tv',
+            apiBaseUrl: import.meta.env.VITE_API_BASE_URL || 'https://api.awraas.tv/api',
+            tenantName: import.meta.env.VITE_TENANT_NAME || 'northafricatv',
+            defaultChannelName: import.meta.env.VITE_CHANNEL_NAME || 'Channel',
+            appTitle: import.meta.env.VITE_APP_TITLE || 'TV Channel'
       }
     },
 
@@ -53,7 +53,12 @@ window.app = function() {
           }
 
             const video = document.getElementById('player');
-            const player = new Plyr(video, {captions: {active: true, update: true}});
+            const player = new Plyr(video, {
+                poster: this.streamPoster,
+                fullscreen:{ enabled: true, fallback: true, iosNative: false, container: null },
+                ratio:'16:9',
+                controls:['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'pip', 'airplay', 'fullscreen']
+            });
 
             if (!Hls.isSupported()) {
                 video.src = this.streamUrl;
@@ -62,11 +67,12 @@ window.app = function() {
                 hls.loadSource(this.streamUrl);
                 hls.attachMedia(video);
             }
+            player.on('canplay', () => {this.loading = false})
         }
       } catch (error) {
         console.error('Error loading channel data:', error);
       } finally {
-        this.loading = false;
+
       }
     },
   }
