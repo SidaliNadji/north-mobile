@@ -9,9 +9,24 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^7.4.3",
     "vite": "npm:rolldown-vite@7.1.14"
   },
   "overrides": {
     "vite": "npm:rolldown-vite@7.1.14"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/ios": "^7.4.3",
+    "@capacitor/screen-orientation": "^7.0.2",
+    "@capacitor/splash-screen": "^7.0.3",
+    "@tailwindcss/vite": "^4.1.14",
+    "alpinejs": "^3.15.0",
+    "hls.js": "^1.6.13",
+    "plyr": "^3.8.3",
+    "tailwindcss": "^4.1.14",
+    "vidstack": "^1.12.13"
   }
 }

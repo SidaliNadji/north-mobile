@@ -1,13 +1,78 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>amg</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./src/style.css" rel="stylesheet">
+  <title x-text="config?.appTitle || 'TV Channel'">TV Channel</title>
+</head>
+
+<body class="bg-slate-100 flex flex-col relative h-screen w-screen" x-data="app()" x-init="loadChannelData()">
+  <header class=" bg-blue-950 items-center">
+    <h1 class="lg:py-6 py-3 tracking-wide text-shadow-white text-white text-center uppercase font-medium">
+        <img src="src/images/logo-nav.png" class="max-h-12 w-auto mx-auto" :alt="channelName">
+    </h1>
+  </header>
+
+  <main class="grid md:flex gap-8 justify-center flex-1 ">
+    <div class="flex md:flex-row flex-col flex-1 md:items-center md:justify-center p-5">
+      <div class="relative md:h-full w-full md:max-h-full md:aspect-video bg-gray-900 rounded-lg  overflow-hidden"
+           :style="videoBackgroundStyle">
+        <!-- Video Element -->
+        <video x-ref="videoPlayer"
+               id="player"
+               class="w-full h-full object-cover"
+               controls
+               preload="none"
+               :poster="streamPoster"
+               >
+        </video>
+
+        <!-- Loading Spinner for Video -->
+        <div x-show="videoLoading"
+             class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <svg class="w-8 h-8 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <nav class="grid md:flex">
+        <ul class="flex md:flex-col gap-4 items-center justify-center ">
+            <template x-for="(url, platform) in socialLinks" :key="platform">
+                <li x-show="url">
+                    <a
+                            :href="url"
+                            target="_blank"
+                            class="text-gray-700 hover:text-blue-600 transition-colors duration-200 rounded-full hover:bg-white hover:bg-opacity-20"
+                    >
+                        <img
+                                class="size-10"
+                                :src="`${config.assetBaseUrl}/images/${platform}.svg`"
+                                :alt="platform"
+                        >
+                    </a>
+                </li>
+            </template>
+        </ul>
+    </nav>
+  </main>
+  
+  <div x-show="loading" 
+       x-transition 
+       class="absolute transition-all inset-0 bg-blue-950/80 backdrop-blur-lg grid items-center justify-center">
+    <svg class="size-10 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+      viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+      </path>
+    </svg>
+  </div>
+  
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
