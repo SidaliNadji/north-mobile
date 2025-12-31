@@ -3,25 +3,26 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <link href="./src/style.css" rel="stylesheet">
   <title x-text="config?.appTitle || 'TV Channel'">TV Channel</title>
 </head>
 
 <body class="bg-slate-100 flex flex-col relative h-screen w-screen" x-data="app()" x-init="loadChannelData()">
-  <header class=" bg-blue-950 items-center">
+  <header class="header bg-blue-950 items-center">
     <h1 class="lg:py-6 py-3 tracking-wide text-shadow-white text-white text-center uppercase font-medium">
         <img src="src/images/logo-nav.png" class="max-h-12 w-auto mx-auto" :alt="channelName">
     </h1>
   </header>
 
-  <main class="grid md:grid-cols-12 gap-8 p-5  md:items-center">
+  <main class="grid md:grid-cols-12 gap-8 p-5  md:items-center h-screen">
       <div class=" md:col-span-10 flex justify-center ">
-          <div class=" w-[75%] md:mx-auto rounded-lg overflow-hidden shadow-lg">
+          <div class="w-full md:w-[75%] md:mx-auto rounded-lg overflow-hidden shadow-lg">
               <video x-ref="videoPlayer"
                      id="player"
                      class="aspect-video w-full h-full"
                      controls
+                     playsinline
                      :poster="streamPoster"
               >
               </video>

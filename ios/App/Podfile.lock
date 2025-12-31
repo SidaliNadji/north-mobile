@@ -1,34 +1,34 @@
 PODS:
-  - Capacitor (7.4.3):
+  - Capacitor (8.0.0):
     - CapacitorCordova
-  - CapacitorCordova (7.4.3)
-  - CapacitorScreenOrientation (7.0.2):
+  - CapacitorCommunitySafeArea (8.0.1):
     - Capacitor
-  - CapacitorSplashScreen (7.0.3):
+  - CapacitorCordova (8.0.0)
+  - CapacitorSplashScreen (8.0.0):
     - Capacitor
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorCommunitySafeArea (from `../../node_modules/@capacitor-community/safe-area`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
-  - "CapacitorScreenOrientation (from `../../node_modules/@capacitor/screen-orientation`)"
   - "CapacitorSplashScreen (from `../../node_modules/@capacitor/splash-screen`)"
 
 EXTERNAL SOURCES:
   Capacitor:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorCommunitySafeArea:
+    :path: "../../node_modules/@capacitor-community/safe-area"
   CapacitorCordova:
     :path: "../../node_modules/@capacitor/ios"
-  CapacitorScreenOrientation:
-    :path: "../../node_modules/@capacitor/screen-orientation"
   CapacitorSplashScreen:
     :path: "../../node_modules/@capacitor/splash-screen"
 
 SPEC CHECKSUMS:
-  Capacitor: b4741ca7affb32c1b70debd03df92cbf522d8a80
-  CapacitorCordova: 435121e81a2df4d0034f0fb11fcefab5104cfdb5
-  CapacitorScreenOrientation: f698d08d01a06dfe0b21392f6c6ba522b9f61773
-  CapacitorSplashScreen: d06ae8804808e9f649a08e7bb7f283c77b688084
+  Capacitor: 79e40e5e76f852965dce30406c65253fa154e24a
+  CapacitorCommunitySafeArea: 15aaa75080b6e256c28ce1c1fb3165ad1c6b1c7f
+  CapacitorCordova: 5dc3912d25ef770a3fe0f431bb65c9fbfa2e92f9
+  CapacitorSplashScreen: 4b78177a21f0f73ccc1c78dd93b2a94854ac4b83
 
-PODFILE CHECKSUM: ef73f3dddb0b1fae270e1ab33238d60ca954df02
+PODFILE CHECKSUM: 624f6a2a54f430b5d1c20e8cc9d4d55b6b2a98ad
 
 COCOAPODS: 1.16.2

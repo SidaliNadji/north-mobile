@@ -1,4 +1,4 @@
-package tv.almagharibia.app;
+package tv.nafrica.app;
 
 import com.getcapacitor.BridgeActivity;
 

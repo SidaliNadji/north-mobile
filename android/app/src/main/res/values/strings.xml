@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Almagharibia TV</string>
-    <string name="title_activity_main">Almagharibia TV</string>
-    <string name="package_name">tv.almagharibia.app</string>
-    <string name="custom_url_scheme">tv.almagharibia.app</string>
+    <string name="app_name">North Africa TV</string>
+    <string name="title_activity_main">North Africa TV</string>
+    <string name="package_name">tv.nafrica.app</string>
+    <string name="custom_url_scheme">tv.nafrica.app</string>
 </resources>

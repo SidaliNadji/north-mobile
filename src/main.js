@@ -3,10 +3,6 @@ import Plyr from 'plyr'
 import Hls from 'hls.js'
 import 'plyr/dist/plyr.css'
 
-import { ScreenOrientation } from '@capacitor/screen-orientation';
-
-await ScreenOrientation.unlock();
-
 window.Alpine = Alpine
 
 window.app = function() {
@@ -24,8 +20,8 @@ window.app = function() {
 
     get config() {
       return {
-            assetBaseUrl: import.meta.env.VITE_ASSET_BASE_URL || 'https://api.awraas.tv',
-            apiBaseUrl: import.meta.env.VITE_API_BASE_URL || 'https://api.awraas.tv/api',
+            assetBaseUrl: import.meta.env.VITE_ASSET_BASE_URL || 'https://app.awraas.tv',
+            apiBaseUrl: import.meta.env.VITE_API_BASE_URL || 'https://app.awraas.tv/api',
             tenantName: import.meta.env.VITE_TENANT_NAME || 'northafricatv',
             defaultChannelName: import.meta.env.VITE_CHANNEL_NAME || 'Channel',
             appTitle: import.meta.env.VITE_APP_TITLE || 'TV Channel'
@@ -67,18 +63,14 @@ window.app = function() {
                 hls.loadSource(this.streamUrl);
                 hls.attachMedia(video);
             }
-            player.on('canplay', () => {this.loading = false})
         }
       } catch (error) {
         console.error('Error loading channel data:', error);
       } finally {
-
+        setTimeout(() => this.loading = false, 1000)
       }
     },
   }
 }
 
 Alpine.start()
-
-
-await ScreenOrientation.lock({ orientation: 'landscape' });
