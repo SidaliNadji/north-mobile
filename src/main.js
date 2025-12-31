@@ -22,9 +22,9 @@ window.app = function() {
       return {
             assetBaseUrl: import.meta.env.VITE_ASSET_BASE_URL || 'https://app.awraas.tv',
             apiBaseUrl: import.meta.env.VITE_API_BASE_URL || 'https://app.awraas.tv/api',
-            tenantName: import.meta.env.VITE_TENANT_NAME || 'northafricatv',
+            tenantName: import.meta.env.VITE_TENANT_NAME || 'almagharibiatv',
             defaultChannelName: import.meta.env.VITE_CHANNEL_NAME || 'Channel',
-            appTitle: import.meta.env.VITE_APP_TITLE || 'TV Channel'
+            appTitle: import.meta.env.VITE_APP_TITLE || 'Almagharibia TV'
       }
     },
 

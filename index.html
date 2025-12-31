@@ -18,10 +18,12 @@
 
   <main class="grid md:grid-cols-12 gap-8 p-5 md:items-center flex-1 w-full relative">
     <div class=" md:col-span-10 flex justify-center ">
-      <div class="w-full md:w-[75%] md:mx-auto rounded-lg overflow-hidden shadow-lg">
-        <video x-ref="videoPlayer" id="player" class="aspect-video w-full h-full" controls playsinline
+      <div class="w-full md:w-[75%] md:mx-auto rounded-lg overflow-hidden">
+        <div class="aspect-video overflow-hidden rounded-b-lg shadow-md">
+          <video x-ref="videoPlayer" id="player" class="aspect-video w-full h-full" controls playsinline
           :poster="streamPoster">
         </video>
+        </div>
       </div>
     </div>
     <div class="md:col-span-2">
